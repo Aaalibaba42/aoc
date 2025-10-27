@@ -1,9 +1,4 @@
-Solution ← {
-  floor_changes ← ((-(')'⊸=))+('('⊸=)) 𝕩
-  floors ← +´¨(1↓↑) floor_changes
-  first_basement ← ¯1 ⊐˜ floors
-  1 + first_basement
-}
+Solution ← { 1+¯1⊐˜+´¨(1↓↑)∘((-(')'⊸=))+('('⊸=))𝕩 }
 
 •Out "Tests:"
 •Out "(()):"
