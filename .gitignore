@@ -1,1 +1,6 @@
 *.input
+*.so
+*.dylib
+*.a
+*.dwo
+*.dwp
