@@ -9,4 +9,4 @@ ComputeMd5 ← {
   buf
 }
 
-•Show <⁼1⊐˜(0=·+´3↑ · ComputeMd5 input∾•Fmt)¨↕10000000
+•Show (1⊸+)•_while_(0≠·+´3↑ · ComputeMd5 input∾•Fmt) 0
