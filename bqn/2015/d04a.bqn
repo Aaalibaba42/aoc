@@ -9,5 +9,5 @@ ComputeMd5 ← {
   buf
 }
 
-•Show <⁼1⊐˜((5⥊0)≡1↓·⌽·∾·((⌊÷⟜16)⋈(16⊸|))¨ 3↑ · ComputeMd5 input∾•Fmt)¨↕1000000
+•Show (1⊸+)•_while_(0≠·+´1↓·⌽·∾·((⌊÷⟜16)⋈(16⊸|))¨ 3↑ · ComputeMd5 input∾•Fmt) 0
 
