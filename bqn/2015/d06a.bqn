@@ -1,4 +1,4 @@
-s ← •Import "./bqn-libs/strings.bqn"
+s ← •Import "../bqn-libs/strings.bqn"
 lines ← •FLines "d06.input"
 
 grid_size ← 10

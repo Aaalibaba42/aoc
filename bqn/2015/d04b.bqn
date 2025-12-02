@@ -1,7 +1,7 @@
 input ← •FChars "d04.input"
 
 md5 ← "libcrypto.so" •FFI "*u8"‿"MD5"‿"*u8:c8"‿"u64"‿"&u8"
-s ← •Import "./bqn-libs/strings.bqn"
+s ← •Import "../bqn-libs/strings.bqn"
 
 ComputeMd5 ← {
   digest ← 16⥊0

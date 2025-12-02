@@ -1,4 +1,4 @@
-s ← •Import "./bqn-libs/strings.bqn"
+s ← •Import "../bqn-libs/strings.bqn"
 
 Solution ← (+´(2⊸×(2⊸↑∧)))+(×´)
 
