@@ -1,3 +1,3 @@
-[submodule "bqn/2015/bqn-libs"]
-	path = bqn/2015/bqn-libs
+[submodule "bqn-libs"]
+	path = bqn/bqn-libs
 	url = git@github.com:mlochbaum/bqn-libs.git
