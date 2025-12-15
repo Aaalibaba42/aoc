@@ -1,15 +1,6 @@
 lines ← •FLines "d05.input"
 
-# I could inline this, but realistically this is already tacit
-Elements ← <˘2⊸↕
-MatchMatrix ← ≡⌜˜
-RemoveConsecutiveDuplicates ← ×⟜(≠⟜» ∨ =⟜«)
-AtLeast2 ← 2⊸≤+˝
-PairPair ← ∨´ (AtLeast2 ∘ RemoveConsecutiveDuplicates˘ MatchMatrix ∘ Elements)
-
-# Dzaima's solution
-# TODO: Understand how it works T_T
-# PairPair ← {2≤⌈´ (↕∘≠-⊐˜) 2↕𝕩}
+PairPair ← 2≤·⌈´·(↕∘≠-⊐˜)2⊸↕
 
 •Show "Pair Pairs:"
 •Show PairPair •Show "xyxy"
@@ -19,7 +10,7 @@ PairPair ← ∨´ (AtLeast2 ∘ RemoveConsecutiveDuplicates˘ MatchMatrix ∘ E
 •Show PairPair •Show "efffe"
 •Show PairPair •Show "abcdefg"
 
-TripletRepeat ← ∨´((=´0‿2⊸⊏)˘ 3⊸↕)
+TripletRepeat ← ∨´·0‿2⊸(=´∘⊏)˘3⊸↕
 
 •Show "TripletRepeat:"
 •Show TripletRepeat •Show "xyxy"
@@ -30,4 +21,5 @@ TripletRepeat ← ∨´((=´0‿2⊸⊏)˘ 3⊸↕)
 •Show TripletRepeat •Show "abcdefg"
 
 •Show "Final Answer:"
-•Show +´ (TripletRepeat ∧ PairPair)¨ lines
+Solution ← TripletRepeat ∧ PairPair
+•Show +´ Solution¨ lines

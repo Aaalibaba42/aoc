@@ -1,6 +1,6 @@
 lines ← •FLines "d05.input"
 
-EnoughVowels ← 2<·+´(<⁼∊⟜"aeiou")¨
+EnoughVowels ← 2<·+´∊⟜"aeiou"
 DuplicateLetter ← ∨´·=´˘2⊸↕
 UnauthorizedCombos ← ∧´ [ "ab" ⋄ "cd" ⋄ "pq" ⋄ "xy" ] ¬∘∊ 2⊸↕
 
