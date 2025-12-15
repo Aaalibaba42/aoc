@@ -1,12 +1,10 @@
-input ← •FChars "d04.input"
-
 md5 ← "libcrypto.so" •FFI "*u8"‿"MD5"‿"*u8:c8"‿"u64"‿"&u8"
 s ← •Import "../bqn-libs/strings.bqn"
 
-ComputeMd5 ← {
-  digest ← 16⥊0
-  ptr‿buf ← Md5 ⟨ s.ToBytes 𝕩, ≠𝕩, digest ⟩
-  buf
-}
+input ← •FChars "d04.input"
 
-•Show (1⊸+)•_while_(0≠·+´3↑ · ComputeMd5 input∾•Fmt) 0
+CMd5 ← ¯1⊑·Md5 s.ToBytes‿≠‿(16⊸⥊⟜0) {𝕎𝕩}¨<
+Inc ← 1⊸+
+Solution ← ∨´0≠3↑·CMd5 input∾•Fmt
+
+•Show Inc •_while_ Solution 0
