@@ -1,28 +1,23 @@
 s ← •Import "../bqn-libs/strings.bqn"
+
 lines ← •FLines "d06.input"
 
-grid_size ← 10
+grid_size ← 1000
 grid ← 0⥊˜⋈˜grid_size
+verbs ← ⟨ ¬ ⋄ 1¨ ⋄ 0¨ ⟩
 
-verbs ← ¬‿1‿0
-AtoB ← ⊣+↕∘-˜
+AtoB ← ⊣+↕∘(0⊸⌈-˜)
 Selection ← AtoB´¨
+Normalize ← ("turn"≡⊑)⊸↓ ' '⊸s.Split
 
-# •Show grid
-# •Show ¬⌾((Selection ⟨ 1‿5 ⋄ 2‿5 ⟩)⊸⊏) grid
+ApplyToGrid ← {𝕎⌾((Selection 𝕩)⊸⊏) grid}
+ParseVerb ← ⊑⟜verbs·⟨"toggle"⋄"on"⋄"off"⟩⊸(<⁼∘⊐)⊏
+ParseRange ← 1⊸+⌾(¯1⊸⊑)¨·<˘·⍉·>˘ 1‿3⊸(s.ToNums¨∘⊏)
 
-_Application ← {
-  𝔽⌾((Selection 𝕩)⊸⊏)
+Solution ← {
+  grid ↩ (ParseVerb ApplyToGrid ParseRange)∘Normalize 𝕩
+  0
 }
 
-•Show (¬_Application⟜⟨ 1‿5 ⋄ 2‿5 ⟩) grid
-
-ParseLine ← {
-  words ← ' ' s.Split 𝕩
-  verb_word ← "on"
-  verb ← ("toggle"‿"on"‿"off" ≡ verb_word) / verbs
-
-  verb Application grid
-}
-
-# •Show ParseLine "turn "
+Solution¨ lines
+•Show +´⥊grid
