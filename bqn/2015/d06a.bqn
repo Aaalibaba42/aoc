@@ -5,13 +5,15 @@ lines ← •FLines "d06.input"
 grid_size ← 1000
 grid ← 0⥊˜⋈˜grid_size
 verbs ← ⟨ ¬ ⋄ 1¨ ⋄ 0¨ ⟩
+verbWords ← ⟨ "toggle" ⋄ "on" ⋄ "off" ⟩
 
 AtoB ← ⊣+↕∘(0⊸⌈-˜)
 Selection ← AtoB´¨
-Normalize ← ("turn"≡⊑)⊸↓ ' '⊸s.Split
+Normalize ← ("turn"≡⊑)⊸↓' '⊸s.Split
 
-ApplyToGrid ← {𝕎⌾((Selection 𝕩)⊸⊏) grid}
-ParseVerb ← ⊑⟜verbs·⟨"toggle"⋄"on"⋄"off"⟩⊸(<⁼∘⊐)⊏
+# Needs to not be tacit for role change of 𝕨 -> 𝕎
+ApplyToGrid ← {𝕎⌾((Selection 𝕩)⊸⊏)grid}
+ParseVerb ← ⊑⟜verbs·verbWords⊸(<⁼∘⊐)⊏
 ParseRange ← 1⊸+⌾(¯1⊸⊑)¨·<˘·⍉·>˘ 1‿3⊸(s.ToNums¨∘⊏)
 
 Solution ← {
