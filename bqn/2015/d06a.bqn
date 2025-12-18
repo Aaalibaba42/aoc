@@ -18,7 +18,7 @@ ParseRange ← 1⊸+⌾(¯1⊸⊑)¨·<˘·⍉·>˘ 1‿3⊸(s.ToNums¨∘⊏)
 
 Solution ← {
   grid ↩ (ParseVerb ApplyToGrid ParseRange)∘Normalize 𝕩
-  0
+  @
 }
 
 Solution¨ lines
