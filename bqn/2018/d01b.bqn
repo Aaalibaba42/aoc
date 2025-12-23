@@ -1,12 +1,6 @@
 input ← •Flines "d01.input"
 Parse ← •ParseFloat∘('+'⊸=∘⊑⊸↓)¨
 
-FirstDup ← ⊑(¬∊)⊸/
-NoDup ← ∧´∘∊
+Solution ← { ⊑(¬∊)⊸/ ∾⟜(+`⟜𝕩 ¯1⊸⊑)•_while_(∧´∘∊) ⟨0⟩ }
 
-Solution ← {
-  ch←Parse 𝕩
-  FirstDup ∾⟜(+`⟜ch ¯1⊸⊑) •_while_ NoDup ⟨0⟩
-}
-
-•Show Solution input
+•Show Solution∘Parse input
