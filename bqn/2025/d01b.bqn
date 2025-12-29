@@ -1,20 +1,8 @@
 lines ← •FLines "d01.input"
 
-Rotate ← {
-  op ← ⊑ +‿- /˜ 'L'‿'R'⊸= ⊑ 𝕩
-  𝕨 Op •ParseFloat 1↓𝕩
-}
-
-ClicksFor ← {
-  100| 𝕨+(×'M'-⊑𝕩)× 1 + ↕•ParseFloat 1↓ 𝕩
-}
-
-Solution ← {
-  run ← Rotate` 50⊸∾ 𝕩
-  starts ← 100 | ¯1↓ run
-  allPositions ← ∾´ starts ClicksFor¨ 𝕩
-  +´ 0 = allPositions
-}
+ParseNum ← •ParseFloat 1⊸↓
+Rotate ← +⟜(ParseNum × ¯1⋆'R'=⊑)
+ClicksFor ← 100|⊣+(×'M'-⊑∘⊢)×1+↕∘ParseNum
+Solution ← +´∘=⟜0·∾´(100|¯1↓·Rotate`50⊸∾)⊸(ClicksFor¨)
 
 •Show Solution lines
-•Show Solution•_timed lines
